@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京筑傲科技有限公司 - 自动化装配线|输送设备|供应链代理|进出口服务</title>
+    <meta name="description" content="北京筑傲科技有限公司成立于2015年，专注于自动化装配线设备、输送系统、工业工具的设计开发与生产，提供供应链代理、进出口贸易、MRO服务等一站式工业解决方案。">
+    <meta name="keywords" content="北京筑傲科技,筑傲科技,自动化装配线,输送设备,工业自动化,供应链代理,进出口贸易,MRO服务,北京自动化设备">
+    <meta name="author" content="北京筑傲科技有限公司">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="http://www.zhuaotech.com.cn/">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: #333; line-height: 1.8; }
+        a { color: #1a73e8; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 顶部导航 */
+        header { background: #1a1a2e; color: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        nav { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; max-width: 1200px; margin: 0 auto; height: 64px; }
+        .logo { font-size: 22px; font-weight: bold; color: #fff; }
+        .logo span { color: #4fc3f7; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: #ccc; font-size: 15px; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #4fc3f7; }
+        
+        /* Banner */
+        .banner { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #fff; padding: 80px 0; text-align: center; }
+        .banner h1 { font-size: 42px; margin-bottom: 15px; }
+        .banner h1 span { color: #4fc3f7; }
+        .banner p { font-size: 20px; color: #aaa; margin-bottom: 30px; }
+        .btn { display: inline-block; background: #4fc3f7; color: #fff; padding: 12px 36px; border-radius: 6px; font-size: 16px; font-weight: bold; transition: background 0.3s; }
+        .btn:hover { background: #039be5; text-decoration: none; color: #fff; }
+        
+        /* 内容区 */
+        .section { padding: 60px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 32px; color: #1a1a2e; margin-bottom: 10px; }
+        .section-title .en { color: #999; font-size: 14px; letter-spacing: 2px; }
+        .section-title .line { width: 60px; height: 3px; background: #4fc3f7; margin: 15px auto 0; }
+        
+        /* 简介 */
+        .about-content { display: flex; gap: 50px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-text p { margin-bottom: 18px; font-size: 16px; color: #555; text-align: justify; }
+        .about-stats { display: flex; gap: 30px; margin-top: 30px; flex-wrap: wrap; }
+        .stat-item { text-align: center; flex: 1; min-width: 100px; }
+        .stat-item .num { font-size: 36px; font-weight: bold; color: #4fc3f7; }
+        .stat-item .label { font-size: 14px; color: #999; margin-top: 5px; }
+        
+        /* 产品服务 */
+        .services { background: #f8f9fa; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .service-card { background: #fff; border-radius: 10px; padding: 36px 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: transform 0.3s, box-shadow 0.3s; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+        .service-card .icon { font-size: 40px; margin-bottom: 20px; }
+        .service-card h3 { font-size: 20px; color: #1a1a2e; margin-bottom: 15px; }
+        .service-card p { font-size: 15px; color: #666; line-height: 1.8; }
+        .service-card ul { margin-top: 12px; padding-left: 20px; }
+        .service-card ul li { font-size: 14px; color: #666; margin-bottom: 6px; }
+        
+        /* 应用领域 */
+        .fields-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+        .field-card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 30px 20px; text-align: center; transition: border-color 0.3s; }
+        .field-card:hover { border-color: #4fc3f7; }
+        .field-card .icon { font-size: 44px; margin-bottom: 15px; }
+        .field-card h3 { font-size: 18px; color: #1a1a2e; margin-bottom: 10px; }
+        .field-card p { font-size: 14px; color: #888; }
+        
+        /* 合作伙伴 */
+        .partners { background: #f8f9fa; }
+        .partner-logos { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: center; }
+        .partner-item { background: #fff; padding: 20px 36px; border-radius: 8px; font-size: 16px; color: #555; font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        
+        /* 优势 */
+        .advantages { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; }
+        .adv-item { text-align: center; padding: 30px 20px; }
+        .adv-item .icon { font-size: 48px; margin-bottom: 18px; }
+        .adv-item h3 { font-size: 18px; color: #1a1a2e; margin-bottom: 12px; }
+        .adv-item p { font-size: 14px; color: #888; }
+        
+        /* 联系方式 */
+        .contact { background: #1a1a2e; color: #fff; }
+        .contact .section-title h2 { color: #fff; }
+        .contact .section-title .line { background: #4fc3f7; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .contact-item h3 { font-size: 18px; color: #4fc3f7; margin-bottom: 15px; }
+        .contact-item p { font-size: 15px; color: #ccc; margin-bottom: 8px; }
+        .contact-item p a { color: #4fc3f7; }
+        
+        /* 页脚 */
+        footer { background: #0f0f23; color: #888; text-align: center; padding: 24px 0; font-size: 14px; }
+        footer a { color: #4fc3f7; }
+        
+        @media (max-width: 768px) {
+            .banner h1 { font-size: 28px; }
+            .banner p { font-size: 16px; }
+            .section-title h2 { font-size: 24px; }
+            .nav-links { gap: 15px; }
+            .nav-links a { font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header>
+    <nav>
+        <div class="logo"><span>Zhuao</span>tech 筑傲科技</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">首页</a></li>
+            <li><a href="#about">关于我们</a></li>
+            <li><a href="#services">产品与服务</a></li>
+            <li><a href="#fields">应用领域</a></li>
+            <li><a href="#partners">合作伙伴</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Banner -->
+<section class="banner" id="home">
+    <div class="container">
+        <h1>我们为<span>现代工业</span>而生</h1>
+        <p>北京筑傲科技有限公司 — 自动化装备设计制造与工业服务综合解决方案提供商</p>
+        <a href="#contact" class="btn">联系我们</a>
+    </div>
+</section>
+
+<!-- 关于我们 -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>关于筑傲科技</h2>
+            <div class="en">About Beijing Zhuaotech Co., Ltd.</div>
+            <div class="line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>北京筑傲科技有限公司（Beijing Zhuaotech Co., Ltd.）成立于2015年，是一家专注于工业自动化装备设计、开发与制造的高新技术企业。公司拥有完整的设计、生产、测试和服务体系。</p>
+                <p>我们始终致力于将先进技术引入工业应用，持续推动产品创新与技术升级。公司产品广泛应用于包装工业、航空航天、电子制造、冶金装备和医疗器械等多个领域，为客户提供从产品设计到售后服务的全流程支持。</p>
+                <p>依托强大的综合服务能力，筑傲科技不仅提供高品质的自动化装备产品，更在供应链管理、质量检测、物流协调、品牌零部件进出口代理、工厂MRO（维护、维修与运营）服务等方面为客户提供一站式解决方案，真正帮助客户实现"降本增效、增值创收"。</p>
+                <p>我们是中国客户与海外供应商之间值得信赖的桥梁。无论您身处B2B还是B2C市场，我们均可为您提供优质的中国采购代理与销售代理服务，协助您参与各类项目投标，拓展业务版图。</p>
+            </div>
+        </div>
+        <div class="about-stats">
+            <div class="stat-item">
+                <div class="num">2015</div>
+                <div class="label">公司成立</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">10+</div>
+                <div class="label">年行业经验</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">5+</div>
+                <div class="label">应用行业领域</div>
+            </div>
+            <div class="stat-item">
+                <div class="num">全球</div>
+                <div class="label">服务客户网络</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 产品与服务 -->
+<section class="section services" id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>产品与服务</h2>
+            <div class="en">Products & Services</div>
+            <div class="line"></div>
+        </div>
+        <div class="service-grid">
+            
+            <div class="service-card">
+                <div class="icon">⚙️</div>
+                <h3>自动化装配线设备</h3>
+                <p>集设计、开发、生产于一体，提供各类自动化装配线、工装夹具、输送设备等标准化及定制化产品，满足不同行业的生产需求。</p>
+                <ul>
+                    <li>自动化装配生产线设计制造</li>
+                    <li>工装夹具与专用工具开发</li>
+                    <li>各类输送设备定制</li>
+                    <li>流水线升级改造服务</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon">🔧</div>
+                <h3>新产品设计开发</h3>
+                <p>拥有专业的设计与研发团队，为客户提供从概念设计到量产落地的全流程产品开发服务，助力客户产品快速上市。</p>
+                <ul>
+                    <li>新产品概念设计与可行性分析</li>
+                    <li>结构设计、CAE仿真分析</li>
+                    <li>样机制作与测试验证</li>
+                    <li>车间设备设施拆除与改造</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon">📦</div>
+                <h3>供应链管理与采购寻源</h3>
+                <p>深耕工业品采购领域，为客户提供电子产品、气动产品、液压产品等品类的专业采购寻源服务，降低成本，提升效率。</p>
+                <ul>
+                    <li>电子产品采购代理</li>
+                    <li>气动、液压产品寻源</li>
+                    <li>供应链全流程管理</li>
+                    <li>质量检测与审核服务</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon">🌐</div>
+                <h3>进出口贸易服务</h3>
+                <p>具备完备的进出口资质，为客户提供品牌零部件进出口代理、技术进出口等一站式国际贸易服务，打通海内外供应链。</p>
+                <ul>
+                    <li>货物进出口代理</li>
+                    <li>技术进出口服务</li>
+                    <li>品牌零部件代理进口</li>
+                    <li>出口报关、物流协调</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon">🏭</div>
+                <h3>工厂MRO服务</h3>
+                <p>为工厂客户提供全面的维护、维修与运营（MRO）服务，保障生产设备的稳定运行，降低非计划停机风险。</p>
+                <ul>
+                    <li>备品备件库存管理服务</li>
+                    <li>设备维护与维修支持</li>
+                    <li>生产辅料采购与配送</li>
+                    <li>工厂运营外包服务</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
+                <div class="icon">🤝</div>
+                <h3>品牌销售代理</h3>
+                <p>作为多家国际知名品牌在中国的销售代理，协助海外品牌拓展中国市场，提供市场推广、项目投标、售后服务等全方位支持。</p>
+                <ul>
+                    <li>中国市场销售代理</li>
+                    <li>项目投标支持服务</li>
+                    <li>品牌推广与市场开拓</li>
+                    <li>售后服务与技术支持</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- 应用领域 -->
+<section class="section" id="fields">
+    <div class="container">
+        <div class="section-title">
+            <h2>应用领域</h2>
+            <div class="en">Application Fields</div>
+            <div class="line"></div>
+        </div>
+        <div class="fields-grid">
+            <div class="field-card">
+                <div class="icon">📦</div>
+                <h3>包装工业</h3>
+                <p>自动化包装生产线、码垛设备、输送系统解决方案</p>
+            </div>
+            <div class="field-card">
+                <div class="icon">🚀</div>
+                <h3>航空航天</h3>
+                <p>高精度装配工装、专用测试设备、工装夹具</p>
+            </div>
+            <div class="field-card">
+                <div class="icon">💡</div>
+                <h3>电子制造</h3>
+                <p>电子装配线、精密输送设备、自动化检测工装</p>
+            </div>
+            <div class="field-card">
+                <div class="icon">🏗️</div>
+                <h3>冶金装备</h3>
+                <p>冶金生产线自动化改造、专用工装设备</p>
+            </div>
+            <div class="field-card">
+                <div class="icon">🏥</div>
+                <h3>医疗器械</h3>
+                <p>医疗产品自动化装配设备、精密工装夹具</p>
+            </div>
+            <div class="field-card">
+                <div class="icon">🔧</div>
+                <h3>通用工业</h3>
+                <p>各类非标自动化设备定制、生产线升级改造</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 核心优势 -->
+<section class="section services">
+    <div class="container">
+        <div class="section-title">
+            <h2>核心优势</h2>
+            <div class="en">Our Advantages</div>
+            <div class="line"></div>
+        </div>
+        <div class="advantages">
+            <div class="adv-item">
+                <div class="icon">🎯</div>
+                <h3>一体化服务能力</h3>
+                <p>从设计、测试、加工到生产、仓储、配送，全流程自主可控，为客户提供交钥匙解决方案</p>
+            </div>
+            <div class="adv-item">
+                <div class="icon">🌍</div>
+                <h3>全球供应链整合</h3>
+                <p>深耕国际供应链，与多家全球知名企业建立长期合作，具备强大的跨境采购与销售代理能力</p>
+            </div>
+            <div class="adv-item">
+                <div class="icon">🔬</div>
+                <h3>持续技术创新</h3>
+                <p>始终保持对先进技术的高度关注，不断将新技术引入产品设计与制造流程，推动产品迭代升级</p>
+            </div>
+            <div class="adv-item">
+                <div class="icon">🤝</div>
+                <h3>客户至上理念</h3>
+                <p>与客户保持紧密沟通，尊重每一位合作伙伴，以优质服务赢得长期信赖，与客户共同成长</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 合作伙伴 -->
+<section class="section partners" id="partners">
+    <div class="container">
+        <div class="section-title">
+            <h2>合作伙伴</h2>
+            <div class="en">Our Partners</div>
+            <div class="line"></div>
+        </div>
+        <p style="text-align:center; color:#888; margin-bottom:40px; max-width:800px; margin-left:auto; margin-right:auto;">
+            筑傲科技与多家国际知名企业建立了长期稳定的合作关系，客户遍布全球多个国家和地区。以下为部分合作客户（排名不分先后）：
+        </p>
+        <div class="partner-logos">
+            <div class="partner-item">Bossard</div>
+            <div class="partner-item">Schneider Electric</div>
+            <div class="partner-item">ABB</div>
+            <div class="partner-item">Jabil</div>
+            <div class="partner-item">Top Electric</div>
+            <div class="partner-item">GE</div>
+            <div class="partner-item">Sony Ericsson</div>
+            <div class="partner-item">ICPC</div>
+        </div>
+    </div>
+</section>
+
+<!-- 联系我们 -->
+<section class="section contact" id="contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>联系我们</h2>
+            <div class="en">Contact Us</div>
+            <div class="line"></div>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>📞 联系电话</h3>
+                <p>电话：+86 137-1827-2791</p>
+            </div>
+            <div class="contact-item">
+                <h3>📧 电子邮件</h3>
+                <p>邮箱：<a href="mailto:james@zhuaotech.com">james@zhuaotech.com</a></p>
+                <p>网站：<a href="http://www.zhuaotech.com.cn" target="_blank">www.zhuaotech.com.cn</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+    <div class="container">
+        <p>© 2015-2026 北京筑傲科技有限公司 Beijing Zhuaotech Co., Ltd. 版权所有</p>
+        <p>邮箱：<a href="mailto:james@zhuaotech.com">james@zhuaotech.com</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
