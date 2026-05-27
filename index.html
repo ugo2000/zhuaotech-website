@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>北京筑傲科技有限公司 - 自动化装配线|输送设备|供应链代理|进出口服务</title>
     <meta name="description" content="北京筑傲科技 — 工业自动化装备设计制造与供应链服务商。专注自动化装配线、输送设备、工装夹具定制，提供MRO服务、品牌零部件进出口代理、采购寻源一站式解决方案。服务客户包括Bossard、ABB、Siemens、GE等国际知名企业。">
-    <meta name="keywords" content="北京筑傲科技,筑傲科技,自动化装配线,输送设备,工业自动化,工装夹具,非标自动化,供应链代理,进出口贸易,MRO服务,采购寻源,品牌代理,北京自动化设备,工业服务,装配线定制,输送线,包装自动化,医疗器械自动化,航空航天工装">
+    <meta name="keywords" content="北京筑傲科技,筑傲科技,自动化装配线,输送设备,工业自动化,工装夹具,非标自动化,供应链代理,进出口贸易,MRO服务,采购寻源,品牌代理,北京自动化设备,工业服务,装配线定制,输送线,包装自动化,医疗器械自动化,航空航天工装,化工自动化,印刷自动化,物流仓储自动化,军工自动化">
     <meta name="author" content="北京筑傲科技有限公司">
     <meta name="robots" content="index,follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://www.zhuaotech.com.cn/">
@@ -59,6 +59,10 @@
             "输送设备",
             "工装夹具",
             "非标自动化",
+            "化工自动化",
+            "印刷自动化",
+            "物流仓储自动化",
+            "军工自动化",
             "供应链管理",
             "MRO服务",
             "进出口贸易",
@@ -315,23 +319,37 @@
         }
 
         /* ===== 应用领域 ===== */
-        .fields-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .fields-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
         .field-card {
             background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: var(--radius); padding: 32px 20px; text-align: center;
+            border-radius: var(--radius); padding: 28px 16px 24px; text-align: center;
             transition: var(--transition);
+            position: relative; overflow: hidden;
         }
+        .field-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; background: var(--accent);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .field-card:hover::before { opacity: 1; }
         .field-card:hover {
             border-color: var(--accent);
             box-shadow: 0 0 24px var(--accent-glow);
             transform: translateY(-3px);
         }
-        .field-card .icon { font-size: 44px; margin-bottom: 16px; }
+        .field-card .icon-wrap {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 56px; height: 56px; border-radius: 14px;
+            background: rgba(0, 212, 255, 0.06);
+            margin-bottom: 14px; transition: background 0.3s ease;
+        }
+        .field-card:hover .icon-wrap { background: rgba(0, 212, 255, 0.12); }
+        .field-card .icon { font-size: 28px; line-height: 1; }
         .field-card h3 {
-            font-size: 17px; color: var(--text-primary); margin-bottom: 10px;
+            font-size: 15px; color: var(--text-primary); margin-bottom: 6px;
             font-weight: 600;
         }
-        .field-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+        .field-card p { font-size: 12px; color: var(--text-muted); line-height: 1.65; }
 
         /* ===== 核心优势 ===== */
         .advantages { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
@@ -543,7 +561,7 @@
                 <div class="label">年行业经验</div>
             </div>
             <div class="stat-item">
-                <div class="num">5+</div>
+                <div class="num">10+</div>
                 <div class="label">应用行业领域</div>
             </div>
             <div class="stat-item">
@@ -649,35 +667,55 @@
             <div class="line"></div>
         </div>
         <div class="fields-grid">
-            <div class="field-card">
-                <div class="icon">📦</div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">📦</span></div>
                 <h3>包装工业</h3>
                 <p>自动化包装生产线、码垛设备、输送系统解决方案</p>
             </div>
-            <div class="field-card">
-                <div class="icon">🚀</div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">🚀</span></div>
                 <h3>航空航天</h3>
                 <p>高精度装配工装、专用测试设备、工装夹具</p>
             </div>
-            <div class="field-card">
-                <div class="icon">💡</div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">💡</span></div>
                 <h3>电子制造</h3>
                 <p>电子装配线、精密输送设备、自动化检测工装</p>
             </div>
-            <div class="field-card">
-                <div class="icon">🏗️</div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">🏗️</span></div>
                 <h3>冶金装备</h3>
                 <p>冶金生产线自动化改造、专用工装设备</p>
             </div>
-            <div class="field-card">
-                <div class="icon">🏥</div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">🏥</span></div>
                 <h3>医疗器械</h3>
                 <p>医疗产品自动化装配设备、精密工装夹具</p>
             </div>
-            <div class="field-card">
-                <div class="icon">🔧</div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">🔧</span></div>
                 <h3>通用工业</h3>
                 <p>各类非标自动化设备定制、生产线升级改造</p>
+            </div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">🧪</span></div>
+                <h3>化工</h3>
+                <p>防爆自动化设备、化工流程输送系统、反应釜配套工装</p>
+            </div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">🖨️</span></div>
+                <h3>印刷包装</h3>
+                <p>印刷产线自动化改造、印后加工设备、上下料输送系统</p>
+            </div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">📊</span></div>
+                <h3>物流仓储</h3>
+                <p>智能分拣系统、输送分拣线、仓储自动化集成方案</p>
+            </div>
+            <div class="field-card reveal">
+                <div class="icon-wrap"><span class="icon">🛡️</span></div>
+                <h3>军工国防</h3>
+                <p>高可靠性非标自动化设备、精密装配系统、专用工装夹具</p>
             </div>
         </div>
     </div>
