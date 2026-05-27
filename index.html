@@ -267,26 +267,52 @@
 
         /* ===== 合作伙伴 ===== */
         .partner-intro {
-            text-align: center; color: var(--text-muted); margin-bottom: 44px;
+            text-align: center; color: var(--text-muted); margin-bottom: 48px;
             max-width: 650px; margin-left: auto; margin-right: auto;
             font-size: 15px; line-height: 1.8;
         }
-        .partner-logos {
-            display: flex; flex-wrap: wrap; gap: 20px;
-            justify-content: center; align-items: center;
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
         }
-        .partner-item {
+        .partner-card {
             background: var(--bg-card); border: 1px solid var(--border);
-            padding: 18px 32px; border-radius: var(--radius-sm);
-            font-size: 15px; color: var(--text-secondary); font-weight: 600;
-            transition: var(--transition); letter-spacing: 0.3px;
+            border-radius: var(--radius); padding: 28px 18px 24px;
+            text-align: center; transition: var(--transition);
+            position: relative; overflow: hidden;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            min-height: 110px;
         }
-        .partner-item:hover {
-            border-color: var(--accent);
-            color: var(--text-primary);
-            box-shadow: 0 0 18px var(--accent-glow);
-            transform: translateY(-2px);
+        .partner-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 3px; transition: height 0.3s;
         }
+        .partner-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: transparent;
+        }
+        .partner-card:hover::before { height: 5px; }
+        .partner-card .partner-name {
+            font-size: 17px; font-weight: 700; letter-spacing: 0.3px;
+            color: var(--text-primary); margin-top: 2px;
+            line-height: 1.3;
+        }
+
+        /* 各合作伙伴品牌色 */
+        .p-bossard::before { background: #E30613; }
+        .p-schneider::before { background: #3DCD58; }
+        .p-abb::before { background: #FF000F; }
+        .p-jabil::before { background: #0072CE; }
+        .p-ge::before { background: #0038A8; }
+        .p-sony::before { background: #8C8C8C; }
+        .p-walmart::before { background: #0071DC; }
+        .p-siemens::before { background: #009999; }
+        .p-smc::before { background: #00529B; }
+        .p-festo::before { background: #009FE3; }
+        .p-top::before { background: #F5A623; }
+        .p-icpc::before { background: #6C5CE7; }
 
         /* ===== 联系方式 ===== */
         .contact {
@@ -338,6 +364,9 @@
             .about-stats { gap: 12px; }
             .stat-item { padding: 18px 12px; }
             .stat-item .num { font-size: 28px; }
+            .partner-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+            .partner-card { padding: 22px 12px; min-height: 90px; }
+            .partner-card .partner-name { font-size: 14px; }
         }
     </style>
 </head>
@@ -578,15 +607,43 @@
         <p class="partner-intro">
             筑傲科技与多家国际知名企业建立了长期稳定的合作关系，客户遍布全球多个国家和地区。以下为部分合作客户（排名不分先后）：
         </p>
-        <div class="partner-logos">
-            <div class="partner-item">Bossard</div>
-            <div class="partner-item">Schneider Electric</div>
-            <div class="partner-item">ABB</div>
-            <div class="partner-item">Jabil</div>
-            <div class="partner-item">Top Electric</div>
-            <div class="partner-item">GE</div>
-            <div class="partner-item">Sony Ericsson</div>
-            <div class="partner-item">ICPC</div>
+        <div class="partner-grid">
+            <div class="partner-card p-bossard">
+                <div class="partner-name">Bossard</div>
+            </div>
+            <div class="partner-card p-schneider">
+                <div class="partner-name">Schneider<br>Electric</div>
+            </div>
+            <div class="partner-card p-abb">
+                <div class="partner-name">ABB</div>
+            </div>
+            <div class="partner-card p-jabil">
+                <div class="partner-name">Jabil</div>
+            </div>
+            <div class="partner-card p-ge">
+                <div class="partner-name">GE</div>
+            </div>
+            <div class="partner-card p-siemens">
+                <div class="partner-name">Siemens</div>
+            </div>
+            <div class="partner-card p-walmart">
+                <div class="partner-name">Walmart</div>
+            </div>
+            <div class="partner-card p-sony">
+                <div class="partner-name">Sony Ericsson</div>
+            </div>
+            <div class="partner-card p-smc">
+                <div class="partner-name">SMC</div>
+            </div>
+            <div class="partner-card p-festo">
+                <div class="partner-name">Festo</div>
+            </div>
+            <div class="partner-card p-top">
+                <div class="partner-name">Top Electric</div>
+            </div>
+            <div class="partner-card p-icpc">
+                <div class="partner-name">ICPC</div>
+            </div>
         </div>
     </div>
 </section>
