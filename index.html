@@ -39,6 +39,7 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -140,6 +141,20 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(88, 166, 255, 0.45);
             text-decoration: none; color: #fff;
+        }
+
+        /* Banner 粒子 */
+        .banner-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+        .particle {
+            position: absolute; border-radius: 50%;
+            background: rgba(88, 166, 255, 0.25);
+            animation: particleFloat linear infinite;
+        }
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
         }
 
         /* ===== 内容区通用 ===== */
@@ -367,6 +382,36 @@
             .partner-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
             .partner-card { padding: 22px 12px; min-height: 90px; }
             .partner-card .partner-name { font-size: 14px; }
+        }
+
+        /* ===== 动效关键帧 ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 初始隐藏，由 JS 触发 */
+        .reveal { opacity: 0; }
+        .reveal.visible { animation: fadeInUp 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards; }
+
+        /* 数字跳动 */
+        .stat-item .num.counting {
+            display: inline-block;
+            animation: countUp 0.6s ease-out;
+        }
+
+        /* 缓慢发光呼吸 */
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 8px rgba(88,166,255,0.08); }
+            50%      { box-shadow: 0 0 22px rgba(88,166,255,0.22); }
         }
     </style>
 </head>
@@ -674,10 +719,111 @@
 <footer>
     <div class="container">
         <p>© 2015-<span id="copy-year"></span> 北京筑傲科技有限公司 Beijing Zhuao Science And Technology Co., Ltd. 版权所有</p>
-        <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
         <p>邮箱：<a href="mailto:james@zhuaotech.com">james@zhuaotech.com</a></p>
     </div>
 </footer>
+
+<script>
+(function() {
+    /* ---- 1. 版权年份 ---- */
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+
+    /* ---- 2. Banner 漂浮粒子 ---- */
+    var banner = document.querySelector('.banner');
+    var particleContainer = document.createElement('div');
+    particleContainer.className = 'banner-particles';
+    banner.insertBefore(particleContainer, banner.firstChild);
+
+    for (var i = 0; i < 18; i++) {
+        var p = document.createElement('div');
+        p.className = 'particle';
+        var size = 2 + Math.random() * 4;
+        p.style.width  = size + 'px';
+        p.style.height = size + 'px';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.animationDuration = (8 + Math.random() * 14) + 's';
+        p.style.animationDelay = Math.random() * 10 + 's';
+        p.style.opacity = 0.2 + Math.random() * 0.4;
+        particleContainer.appendChild(p);
+    }
+
+    /* ---- 3. 滚动渐入动画 (Intersection Observer) ---- */
+    var revealEls = document.querySelectorAll(
+        '.service-card, .field-card, .adv-item, .partner-card, .contact-item, .stat-item, .about-text p'
+    );
+    revealEls.forEach(function(el) { el.classList.add('reveal'); });
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+    revealEls.forEach(function(el) { observer.observe(el); });
+
+    /* ---- 4. 统计数字依次出现 ---- */
+    var statsSection = document.querySelector('.about-stats');
+    if (statsSection) {
+        var statsObserver = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                var nums = statsSection.querySelectorAll('.num');
+                nums.forEach(function(n, idx) {
+                    setTimeout(function() {
+                        n.classList.add('counting');
+                    }, idx * 200);
+                });
+                statsObserver.unobserve(statsSection);
+            }
+        }, { threshold: 0.5 });
+        statsObserver.observe(statsSection);
+    }
+
+    /* ---- 5. 导航栏当前高亮 (scroll spy) ---- */
+    var sections = document.querySelectorAll('section[id]');
+    var navLinks = document.querySelectorAll('.nav-links a');
+
+    function updateActiveNav() {
+        var scrollY = window.scrollY + 100;
+        var current = '';
+        sections.forEach(function(sec) {
+            if (sec.offsetTop <= scrollY) current = sec.getAttribute('id');
+        });
+        navLinks.forEach(function(a) {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    /* ---- 6. 锚点平滑滚动 ---- */
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    /* ---- 7. Nav 滚动时收缩 ---- */
+    var header = document.querySelector('header');
+    var lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        var now = window.scrollY;
+        if (now > 80 && now > lastScroll) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        lastScroll = now;
+    }, { passive: true });
+})();
+</script>
 
 </body>
 </html>
