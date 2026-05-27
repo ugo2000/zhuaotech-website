@@ -82,6 +82,18 @@
         }
         .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
+        /* 语言切换 */
+        .lang-switch {
+            color: var(--text-secondary); font-size: 13px; font-weight: 600;
+            padding: 6px 14px; border: 1px solid var(--border);
+            border-radius: 6px; transition: var(--transition);
+            letter-spacing: 0.5px; margin-left: 8px;
+        }
+        .lang-switch:hover {
+            color: var(--text-primary); border-color: var(--accent);
+            background: var(--accent-glow); text-decoration: none;
+        }
+
         /* ===== Banner ===== */
         .banner {
             background: var(--gradient-banner);
@@ -336,6 +348,7 @@
             <li><a href="#partners">合作伙伴</a></li>
             <li><a href="#contact">联系我们</a></li>
         </ul>
+        <a href="https://www.zhuaotech.com" class="lang-switch" title="Switch to English">EN</a>
     </nav>
 </header>
 
