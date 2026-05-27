@@ -376,7 +376,8 @@
 <!-- 页脚 -->
 <footer>
     <div class="container">
-        <p>© 2015-2026 北京筑傲科技有限公司 Beijing Zhuaotech Co., Ltd. 版权所有</p>
+        <p>© 2015-<span id="copy-year"></span> 北京筑傲科技有限公司 Beijing Zhuaotech Co., Ltd. 版权所有</p>
+        <script>document.getElementById('copy-year').textContent = new Date().getFullYear();</script>
         <p>邮箱：<a href="mailto:james@zhuaotech.com">james@zhuaotech.com</a></p>
     </div>
 </footer>
