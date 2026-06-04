@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.zhuaotech.com.cn/sitemap.xml
+
+# Disallow unnecessary paths
+Disallow: /CNAME
+Disallow: /.git/
