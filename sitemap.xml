@@ -31,7 +31,15 @@
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
         <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.zhuaotech.com.cn/custom-automation/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://www.zhuaotech.com/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zhuaotech.com.cn/custom-automation/en/"/>
+    </url>
+    <url>
+        <loc>https://www.zhuaotech.com.cn/custom-automation/en/</loc>
+        <lastmod>2026-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.zhuaotech.com.cn/custom-automation/en/"/>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://www.zhuaotech.com.cn/custom-automation/"/>
     </url>
     <url>
         <loc>https://www.zhuaotech.com.cn/mro-best-practices/</loc>
