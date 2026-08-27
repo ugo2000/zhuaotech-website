@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Sensor Selection Guide | Proximity, Photoelectric, Encoders & IO-Link | Zhuao</title>
+    <meta name="description" content="How to choose industrial sensors for automation lines: proximity vs photoelectric, encoder types, NPN vs PNP outputs, IP ratings & IO-Link explained.">
+    <meta name="keywords" content="industrial sensor selection guide, proximity sensor vs photoelectric, encoder types, NPN vs PNP sensor, IP67 sensor, IO-Link sensors, sensors for automated assembly line, industrial automation sensors">
+    <meta name="author" content="Beijing Zhuao Science And Technology Co., Ltd.">
+    <meta name="robots" content="index,follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://www.zhuaotech.com.cn/industrial-sensor-guide/">
+    <link rel="alternate" hreflang="en" href="https://www.zhuaotech.com.cn/industrial-sensor-guide/">
+    <link rel="alternate" hreflang="x-default" href="https://www.zhuaotech.com.cn/industrial-sensor-guide/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Beijing Zhuao Science And Technology Co., Ltd.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Industrial Sensor Selection Guide — Zhuao">
+    <meta property="og:description" content="Proximity vs photoelectric, encoder types, NPN vs PNP, IP ratings and IO-Link — a practical guide to specifying sensors for automated lines.">
+    <meta property="og:url" content="https://www.zhuaotech.com.cn/industrial-sensor-guide/">
+    <meta property="og:image" content="https://www.zhuaotech.com.cn/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Industrial Sensor Selection Guide — Zhuao">
+    <meta name="twitter:description" content="Proximity vs photoelectric, encoder types, NPN vs PNP, IP ratings and IO-Link explained for automation buyers.">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+    <!-- Schema.org: Article + BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Industrial Sensor Selection Guide: Proximity, Photoelectric, Encoders & IO-Link",
+        "description": "A practical guide to specifying industrial sensors for automated production lines: sensing technologies, six selection dimensions, application matrix, brand cross-reference and common mistakes.",
+        "author": {"@type": "Organization", "name": "Beijing Zhuao Science And Technology Co., Ltd.", "url": "https://www.zhuaotech.com.cn/"},
+        "publisher": {"@type": "Organization", "name": "Beijing Zhuao Science And Technology Co., Ltd.", "url": "https://www.zhuaotech.com.cn/"},
+        "datePublished": "2026-08-27",
+        "dateModified": "2026-08-27",
+        "mainEntityOfPage": "https://www.zhuaotech.com.cn/industrial-sensor-guide/",
+        "inLanguage": "en",
+        "articleSection": "Industrial Automation"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zhuaotech.com.cn/"},
+            {"@type": "ListItem", "position": 2, "name": "Industrial Sensor Selection Guide", "item": "https://www.zhuaotech.com.cn/industrial-sensor-guide/"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the difference between a proximity sensor and a photoelectric sensor?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A proximity sensor (inductive or capacitive) detects objects at very short range, typically 1–40 mm, without a light beam — inductive models sense metal only, capacitive models sense almost any material including liquids. A photoelectric sensor uses a light beam (through-beam, retro-reflective or diffuse) and works from centimeters up to tens of meters, detecting almost any object regardless of material. Choose proximity for metal part presence at close range inside fixtures; choose photoelectric for longer distances, small parts on conveyors, or transparent-object variants."}
+            },
+            {
+                "@type": "Question",
+                "name": "NPN vs PNP sensor output — which one should I choose?",
+                "acceptedAnswer": {"@type": "Answer", "text": "PNP (sourcing) outputs switch the positive supply to the load and are the standard in Europe and most international PLC systems; NPN (sinking) outputs switch the negative side and are common in Japanese and some Asian equipment. Electrically both work — the choice must match your PLC input card type. When in doubt, check the controller's input specification (sink vs source) or use sensors with configurable/push-pull outputs. Mixing them up is the single most common wiring mistake on new lines."}
+            },
+            {
+                "@type": "Question",
+                "name": "What does an IP67 or IP69K rating mean for a sensor?",
+                "acceptedAnswer": {"@type": "Answer", "text": "The IP (Ingress Protection) code rates dust and water resistance. IP67 means dust-tight and protected against temporary immersion (30 minutes at 1 m) — sufficient for most washdown-adjacent and oily machine environments. IP69K adds resistance to high-pressure, high-temperature washdown jets, required in food, beverage and pharmaceutical lines cleaned with steam or pressure washers. Specify the rating for the worst cleaning process the sensor will actually face, not the average environment."}
+            },
+            {
+                "@type": "Question",
+                "name": "Incremental vs absolute encoder — how do I decide?",
+                "acceptedAnswer": {"@type": "Answer", "text": "An incremental encoder outputs pulses and only tracks relative movement — cheap and simple, but position is lost on power-down and must be re-homed. An absolute encoder outputs a unique digital code for every shaft position (single-turn or multi-turn), so position survives power cycles with no homing routine. Use incremental for speed feedback and simple positioning where homing is acceptable; use absolute for robot joints, servo axes and any axis where losing position risks collision or scrap."}
+            },
+            {
+                "@type": "Question",
+                "name": "What is IO-Link and do I need it on my line?",
+                "acceptedAnswer": {"@type": "Answer", "text": "IO-Link is a point-to-point digital communication standard (IEC 61131-9) that runs over the same 3-wire cable as a standard sensor. It lets you read process values and diagnostics, remote-configure parameters, and auto-download settings when a sensor is swapped — no ladder-logic rewiring. You need it when changeover time, remote diagnostics or sensor-level data matter; for simple presence detection on a stable product, a standard PNP sensor remains cheaper and perfectly adequate."}
+            },
+            {
+                "@type": "Question",
+                "name": "Can I replace a failed sensor with a different brand?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Usually yes — industrial sensors are highly standardized. Match five things: sensing technology and range, output type (PNP/NPN, NO/NC), supply voltage (typically 10–30 V DC), connector or cable pinout (M8/M12), and housing thread (M8/M12/M18/M30). SICK, Omron, Keyence, Balluff, Pepperl+Fuchs, ifm, Turck and Banner parts are routinely cross-referenced. A structured cross-reference list like our spare-parts library makes the swap verifiable instead of guesswork."}
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2333;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --accent: #58a6ff;
+            --accent2: #3fb950;
+            --gradient-2: linear-gradient(135deg, #58a6ff 0%, #3fb950 100%);
+            --radius: 12px;
+            --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Segoe UI", "PingFang SC", -apple-system, sans-serif;
+            color: var(--text-primary); line-height: 1.8;
+            background: var(--bg-primary); -webkit-font-smoothing: antialiased;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #79c0ff; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        header {
+            background: rgba(13,17,23,0.92); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 100;
+        }
+        nav { display: flex; align-items: center; justify-content: space-between;
+            max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 64px; }
+        .logo { font-size: 20px; font-weight: 700;
+            background: var(--gradient-2); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text; }
+        .nav-links { display: flex; gap: 22px; list-style: none; flex-wrap: wrap; }
+        .nav-links a { color: var(--text-secondary); font-size: 14px; font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+        .banner { background: linear-gradient(135deg, #0a0e27 0%, #111d4a 45%, #0d1f3c 75%, #0a1628 100%);
+            padding: 84px 0 72px; text-align: center; }
+        .banner h1 { font-size: 40px; font-weight: 800; margin-bottom: 16px; letter-spacing: 0.3px; }
+        .banner h1 span { background: var(--gradient-2); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; background-clip: text; }
+        .banner p { font-size: 18px; color: var(--text-secondary); max-width: 720px;
+            margin: 0 auto 32px; }
+        .btn { display: inline-block; background: var(--gradient-2); color: #fff;
+            padding: 13px 36px; border-radius: 50px; font-size: 15px; font-weight: 600;
+            box-shadow: 0 4px 20px rgba(88,166,255,0.3); }
+        .btn:hover { color: #fff; transform: translateY(-2px); text-decoration: none; }
+        .section { padding: 72px 0; }
+        .section-alt { background: var(--bg-secondary); }
+        .section-title { text-align: center; margin-bottom: 48px; }
+        .section-title h2 { font-size: 30px; font-weight: 700; }
+        .section-title .en { color: var(--text-muted); font-size: 12px;
+            letter-spacing: 3px; text-transform: uppercase; }
+        .section-title .line { width: 56px; height: 3px; background: var(--gradient-2);
+            border-radius: 3px; margin: 16px auto 0; }
+        .lead { max-width: 760px; margin: 0 auto; text-align: center;
+            color: var(--text-secondary); font-size: 16px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; }
+        .card { background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 32px; transition: var(--transition); }
+        .card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .card .icon { font-size: 38px; margin-bottom: 16px; }
+        .card h3 { font-size: 19px; margin-bottom: 12px; }
+        .card p { font-size: 15px; color: var(--text-secondary); }
+        .card ul { margin-top: 12px; padding-left: 18px; color: var(--text-secondary); font-size: 14px; }
+        .card ul li { margin-bottom: 6px; }
+        .content { max-width: 820px; margin: 0 auto; }
+        .content p { color: var(--text-secondary); margin-bottom: 16px; font-size: 16px; }
+        .content h3 { font-size: 21px; margin: 28px 0 14px; color: var(--text-primary); }
+        .content strong { color: var(--text-primary); }
+        .content code { background: #0d1117; border: 1px solid var(--border); border-radius: 5px;
+            padding: 2px 7px; font-size: 14px; color: var(--accent2); }
+        .compare { width: 100%; border-collapse: collapse; margin-top: 8px; }
+        .compare th, .compare td { border: 1px solid var(--border); padding: 12px 14px;
+            font-size: 14px; text-align: left; }
+        .compare th { background: var(--bg-secondary); color: var(--text-primary); }
+        .compare td { color: var(--text-secondary); }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; counter-reset: step; }
+        .step { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+            padding: 22px 18px; text-align: center; }
+        .step .num { display: inline-flex; width: 34px; height: 34px; border-radius: 50%;
+            background: var(--gradient-2); color: #fff; font-weight: 700; align-items: center;
+            justify-content: center; margin-bottom: 10px; }
+        .step h3 { font-size: 15px; margin-bottom: 6px; }
+        .step p { font-size: 13px; color: var(--text-muted); }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 22px 26px; margin-bottom: 14px; }
+        .faq-item h3 { font-size: 16px; color: var(--text-primary); margin-bottom: 8px; }
+        .faq-item p { font-size: 14px; color: var(--text-secondary); }
+        .cta { text-align: center; }
+        .cta .grid { margin-top: 28px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        footer { background: #0a0e14; border-top: 1px solid var(--border);
+            text-align: center; padding: 26px 0; }
+        footer p { color: var(--text-muted); font-size: 13px; margin-bottom: 4px; }
+        @media (max-width: 768px) {
+            .banner h1 { font-size: 28px; }
+            .banner p { font-size: 15px; }
+            .section { padding: 48px 0; }
+            .nav-links { gap: 14px; }
+            .compare { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo"><span>Zhuao</span>tech</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/mro-pro/">MRO Pro</a></li>
+            <li><a href="/blog/spare-parts-cross-reference/">Spare Parts</a></li>
+            <li><a href="/custom-automation/en/">Custom Automation</a></li>
+            <li><a href="/industrial-sensor-guide/" class="active">Sensor Guide</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="banner">
+    <div class="container">
+        <h1>Industrial Sensor <span>Selection Guide</span></h1>
+        <p>Proximity vs photoelectric, incremental vs absolute encoders, NPN vs PNP, IP ratings and IO-Link — how to specify the right sensor for an automated line, and swap brands without downtime.</p>
+        <a href="/#contact" class="btn">Ask an engineer</a>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why sensor choice decides line uptime</h2>
+            <div class="en">The cheapest component that can stop everything</div>
+            <div class="line"></div>
+        </div>
+        <div class="content">
+            <p>A $30 photoelectric sensor can idle a $300,000 assembly line. Sensors are the smallest, cheapest and most failure-prone input devices on any automated line — yet they are usually specified last, copied from an old BOM, or swapped under time pressure with whatever is on the shelf. The result is mis-detection, nuisance stops and emergency freight for a part that costs less than the shipping.</p>
+            <p>This guide condenses the specification logic we apply when integrating sensors into <a href="/custom-automation/en/">custom automation lines</a>: pick the sensing technology first, then lock six parameters, then verify the brand cross-reference before you buy. For replacement part numbers you can already search, see our <a href="/blog/spare-parts-cross-reference/">industrial spare-parts cross-reference</a>.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-title">
+            <h2>Sensing technologies at a glance</h2>
+            <div class="en">Pick the physics first</div>
+            <div class="line"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">🧲</div>
+                <h3>Inductive / capacitive proximity</h3>
+                <p>Non-contact detection at 1–40 mm. Inductive senses metal only; capacitive senses nearly any material, including liquids through a tank wall.</p>
+                <ul>
+                    <li>Metal part presence in fixtures</li>
+                    <li>Position &amp; end-of-travel confirmation</li>
+                    <li>M8 / M12 / M18 / M30 threaded bodies</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon">🔦</div>
+                <h3>Photoelectric</h3>
+                <p>Light-beam detection from centimeters to tens of meters: through-beam, retro-reflective and diffuse (background-suppression variants).</p>
+                <ul>
+                    <li>Parts on conveyors &amp; counting</li>
+                    <li>Transparent-object specialist models</li>
+                    <li>Long-range pallet / gate detection</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon">📡</div>
+                <h3>Ultrasonic</h3>
+                <p>Sound-pulse distance measurement, immune to color, transparency and dust. Longer range and analog distance output available.</p>
+                <ul>
+                    <li>Level &amp; loop control</li>
+                    <li>Clear-film and bottle detection</li>
+                    <li>Distance measurement 60 mm – 6 m</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon">🔄</div>
+                <h3>Encoders</h3>
+                <p>Rotary position and speed feedback: incremental (pulse) or absolute (unique digital position, single- or multi-turn).</p>
+                <ul>
+                    <li>Servo &amp; motor speed feedback</li>
+                    <li>Cut-to-length and positioning axes</li>
+                    <li>SSI / BiSS / fieldbus absolute types</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon">👁️</div>
+                <h3>Vision &amp; code readers</h3>
+                <p>Camera-based inspection, presence/absence, measurement and 1D/2D code reading for traceability.</p>
+                <ul>
+                    <li>Label, print &amp; assembly verification</li>
+                    <li>Barcode / DataMatrix traceability</li>
+                    <li>Robot guidance</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="icon">🌡️</div>
+                <h3>Pressure, temperature &amp; flow</h3>
+                <p>Process sensors for pneumatics, hydraulics and thermal management — increasingly shipped with IO-Link diagnostics.</p>
+                <ul>
+                    <li>Hydraulic pressure monitoring</li>
+                    <li>Cabinet &amp; motor temperature</li>
+                    <li>Coolant flow verification</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Six parameters that lock the spec</h2>
+            <div class="en">Get these right and any brand will work</div>
+            <div class="line"></div>
+        </div>
+        <div class="steps">
+            <div class="step"><div class="num">1</div><h3>Range &amp; target</h3><p>Distance, object size, material, surface</p></div>
+            <div class="step"><div class="num">2</div><h3>Output type</h3><p>PNP / NPN, NO / NC, analog, IO-Link</p></div>
+            <div class="step"><div class="num">3</div><h3>Supply voltage</h3><p>Usually 10–30 V DC, confirm ripple</p></div>
+            <div class="step"><div class="num">4</div><h3>Connection</h3><p>M8 / M12 pinout, cable vs connector</p></div>
+            <div class="step"><div class="num">5</div><h3>Environment</h3><p>IP67 / IP69K, temp, oil, washdown</p></div>
+            <div class="step"><div class="num">6</div><h3>Speed &amp; precision</h3><p>Response time, repeat accuracy, hysteresis</p></div>
+        </div>
+        <div class="content" style="margin-top:36px;">
+            <h3>Proximity vs photoelectric — the decision in one table</h3>
+            <table class="compare">
+                <tr><th>Factor</th><th>Proximity (inductive)</th><th>Photoelectric</th></tr>
+                <tr><td>Typical range</td><td>1–40 mm</td><td>5 cm – 60 m</td></tr>
+                <tr><td>Target material</td><td>Metal only</td><td>Almost any (special models for transparent)</td></tr>
+                <tr><td>Dirt / oil tolerance</td><td>Excellent</td><td>Lens needs cleaning; background-suppression helps</td></tr>
+                <tr><td>Typical use</td><td>Fixture &amp; cylinder position</td><td>Conveyor presence, counting, gates</td></tr>
+                <tr><td>Cost</td><td>Low</td><td>Low–medium</td></tr>
+            </table>
+            <h3 style="margin-top:32px;">NPN vs PNP — match the PLC, not the habit</h3>
+            <p><strong>PNP (sourcing)</strong> switches positive voltage to the load and pairs with sinking PLC inputs — the de-facto standard in Europe and most international machinery. <strong>NPN (sinking)</strong> switches the negative side and is common on Japanese equipment. Electrically neither is "better"; the wrong one simply will not read. Check the controller input spec before ordering, and standardize one type across the plant to shrink your spare-parts variety.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-title">
+            <h2>Application matrix</h2>
+            <div class="en">What we fit on real lines</div>
+            <div class="line"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Assembly &amp; fixtures</h3>
+                <p>Inductive proxies confirm part seated and clamp closed before the cycle starts — the cheapest poka-yoke on any line.</p>
+            </div>
+            <div class="card">
+                <div class="icon">📦</div>
+                <h3>Logistics &amp; sorting</h3>
+                <p>Photoelectric arrays for presence, height and counting; code readers close the traceability loop at each divert.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🥤</div>
+                <h3>Packaging &amp; filling</h3>
+                <p>Ultrasonic or capacitive sensors for film, labels and transparent bottles; IP69K where washdown is daily.</p>
+            </div>
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>Motion &amp; robotics</h3>
+                <p>Absolute encoders on servo axes and joints so position survives power cycles without re-homing.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Brand cross-reference &amp; sourcing</h2>
+            <div class="en">Swap brands without downtime</div>
+            <div class="line"></div>
+        </div>
+        <div class="content">
+            <p>Industrial sensors are among the most standardized components in MRO: SICK, Omron, Keyence, Balluff, Pepperl+Fuchs, ifm, Turck and Banner models are routinely interchangeable if the six parameters above match. The risk is not the brand — it is the undocumented suffix: <code>-Z</code> for a connector variant, <code>/93</code> for a special cable, a changed output stage. Always decode the full part number, not the series.</p>
+            <p>Two habits eliminate most failures in practice: keep a verified cross-reference list per line (our <a href="/blog/spare-parts-cross-reference/">spare-parts cross-reference</a> shows the format), and track min/max stock in an MRO system such as <a href="/mro-pro/">MRO Pro</a> so a failed sensor triggers replenishment before the next one fails. Zhuao also sources and cross-references sensor part numbers as part of our supply-chain service — send us your BOM.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section section-alt">
+    <div class="container">
+        <div class="section-title">
+            <h2>FAQ</h2>
+            <div class="en">Common questions</div>
+            <div class="line"></div>
+        </div>
+        <div>
+            <div class="faq-item">
+                <h3>What is the difference between a proximity sensor and a photoelectric sensor?</h3>
+                <p>A proximity sensor detects objects at very short range (1–40 mm) without a light beam — inductive models sense metal only, capacitive models sense almost any material. A photoelectric sensor uses a light beam and works from centimeters to tens of meters on almost any target. Choose proximity for metal presence inside fixtures; photoelectric for longer distances and conveyor detection.</p>
+            </div>
+            <div class="faq-item">
+                <h3>NPN vs PNP sensor output — which one should I choose?</h3>
+                <p>PNP (sourcing) is standard in Europe and most international PLC systems; NPN (sinking) is common in Japanese equipment. Both work — the choice must match your PLC input card. Check the controller's input specification, and standardize one type plant-wide to simplify spares.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What does an IP67 or IP69K rating mean for a sensor?</h3>
+                <p>IP67 is dust-tight and survives temporary immersion — enough for most machine environments. IP69K adds high-pressure, high-temperature washdown resistance required on food, beverage and pharma lines. Specify for the worst cleaning process, not the average environment.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Incremental vs absolute encoder — how do I decide?</h3>
+                <p>Incremental encoders track relative movement and lose position on power-down; absolute encoders report a unique position that survives power cycles. Use incremental for speed feedback and re-homeable axes; absolute for servo axes, robots and anywhere losing position risks collision or scrap.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What is IO-Link and do I need it?</h3>
+                <p>IO-Link is a digital point-to-point standard over the standard 3-wire sensor cable: process values, diagnostics, remote configuration and automatic parameter download after a swap. Adopt it where changeover time and diagnostics matter; for simple presence detection a standard PNP sensor is cheaper and adequate.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can I replace a failed sensor with a different brand?</h3>
+                <p>Usually yes. Match sensing technology and range, output type (PNP/NPN, NO/NC), supply voltage, connector pinout and housing thread. Decode the full part number including suffixes, and verify against a cross-reference list before buying.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section cta">
+    <div class="container">
+        <div class="section-title">
+            <h2>Keep exploring</h2>
+            <div class="en">Related resources</div>
+            <div class="line"></div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="icon">⚙️</div>
+                <h3>Custom automation</h3>
+                <p>How we integrate sensors into engineered assembly lines, fixtures and retrofits built in China.</p>
+                <p style="margin-top:14px;"><a href="/custom-automation/en/">Explore custom automation →</a></p>
+            </div>
+            <div class="card">
+                <div class="icon">📚</div>
+                <h3>Spare-parts cross-reference</h3>
+                <p>526 industrial part numbers — including sensors and encoders — organized for sourcing.</p>
+                <p style="margin-top:14px;"><a href="/blog/spare-parts-cross-reference/">View the library →</a></p>
+            </div>
+            <div class="card">
+                <div class="icon">🖥️</div>
+                <h3>MRO Pro software</h3>
+                <p>Min/max stock alerts and work orders so a failed sensor never stops your line twice.</p>
+                <p style="margin-top:14px;"><a href="/mro-pro/">Explore MRO Pro →</a></p>
+            </div>
+        </div>
+        <p style="margin-top:32px;"><a href="/#contact" class="btn">Contact us</a></p>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>© 2015-<span id="copy-year"></span> Beijing Zhuao Science And Technology Co., Ltd. All rights reserved.</p>
+        <p>Email: <a href="mailto:info@zhuaotech.com">info@zhuaotech.com</a> · <a href="/">Back to home</a></p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('copy-year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
