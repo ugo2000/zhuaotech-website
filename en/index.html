@@ -373,5 +373,15 @@
     </div>
 </footer>
 
+<button class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+<script>
+(function(){
+    var btt = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', function(){
+        if (window.scrollY > 500) btt.classList.add('show'); else btt.classList.remove('show');
+    }, { passive: true });
+    btt.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
 </body>
 </html>
